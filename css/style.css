@@ -1,0 +1,12 @@
+.invisible {
+  display: none;
+}
+
+.pasgen {
+  height: 40px;
+}
+
+#decryptres {
+  width: 400px;
+  margin-top: 2em;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/aes.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="invisible">
+    <label>encrypted</label>
+    <div id="demo1"></div>
+    <br>
+  
+    <label>decrypted</label>
+    <div id="demo2"></div>
+  
+    <br>
+    <label>Actual Message</label>
+    <div id="demo3"></div>
+  </div>
+
+  <div class="container">
+    <div class="pasgen">
+      <button onclick="gfg_Run()">
+        Click Here
+      </button>
+      <br>
+      <div>
+        <p id="geeks"></p>
+      </div>
+    </div>
+    <div class="encripter">
+      <h2>Encrypt...</h2>
+      <form name="meencrypter">
+        <label for="entext">Text</label><br>
+        <textarea name="entext" id="entext" cols="30" rows="10"></textarea><br>
+        <label for="enpass">Pass:</label>
+        <input type="text" name="enpass" id="enpass">
+        <button type="submit">Encrypt</button>
+      </form>
+    </div>
+    <div class="decripter">
+      <h2>Decrypt...</h2>
+      <form name="medecrypter">
+        <label for="detext">Text</label><br>
+        <textarea name="detext" id="detext" cols="30" rows="10"></textarea><br>
+        <label for="depass">Pass:</label>
+        <input type="text" name="depass" id="depass">
+        <button type="submit">Decrypt</button>
+      </form>
+      <div id="decryptres"></div><button id="clipButton" disabled>Copy</button>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
