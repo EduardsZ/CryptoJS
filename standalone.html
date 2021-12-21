@@ -80,7 +80,7 @@
       <h2>Encrypt...</h2>
       <form name="meencrypter">
         <label for="entext">Text</label><br>
-        <textarea name="entext" id="entext" cols="30" rows="10"></textarea><br>
+        <textarea class="materialize-textarea" name="entext" id="entext" cols="30" rows="10"></textarea><br>
         <label for="enpass">Pass:</label>
         <input type="password" name="enpass" id="enpass">
         <button class="btn light-blue lighten-1" type="submit">Encrypt</button>
@@ -89,8 +89,10 @@
     <div class="decripter">
       <h2>Decrypt...</h2>
       <form name="medecrypter">
-        <label for="detext">Text</label><br>
-        <textarea name="detext" id="detext" cols="30" rows="10"></textarea><br>
+        <div class="input-field col l8">
+          <label for="detext">Text</label><br>
+          <textarea class="materialize-textarea" name="detext" id="detext" cols="30" rows="10"></textarea><br>
+        </div>
         <label for="depass">Pass:</label>
         <input type="password" name="depass" id="depass">
         <button class="btn brown accent-2" type="submit">Decrypt</button>
