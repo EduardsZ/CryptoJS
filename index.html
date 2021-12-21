@@ -4,41 +4,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/aes.js"></script>
   <title>Js crypto...</title>
 </head>
 <body>
-  <div class="container">
-    <div class="pasgen">
-      <button onclick="gfg_Run()">
-        Click Here
-      </button>
-      <br>
+  <div class="container mt-2">
+    <div class="row mb-3 text-center">
+      <h1>Some crypting tool</h1>
+    </div>
+    <div class="pasgen row mb-3">
+      <h2>Just some code generator</h2>
       <div>
-        <p id="geeks"></p>
+
+        <button class="btn btn-success" onclick="gfg_Run()">
+          Click Here
+        </button>
+        <span id="geeks"></span>
       </div>
     </div>
-    <div class="encripter">
+    <div class="encripter row mb-3">
       <h2>Encrypt...</h2>
       <form name="meencrypter">
         <label for="entext">Text</label><br>
-        <textarea name="entext" id="entext" cols="30" rows="10"></textarea><br>
+        <textarea name="entext" id="entext" cols="60" rows="3"></textarea><br>
         <label for="enpass">Pass:</label>
         <input type="password" name="enpass" id="enpass">
-        <button type="submit">Encrypt</button>
+        <button class="btn btn-warning" type="submit">Encrypt</button>
       </form>
     </div>
-    <div class="decripter">
+    <div class="decripter mb-3">
       <h2>Decrypt...</h2>
       <form name="medecrypter">
         <label for="detext">Text</label><br>
-        <textarea name="detext" id="detext" cols="30" rows="10"></textarea><br>
+        <textarea name="detext" id="detext" cols="60" rows="3"></textarea><br>
         <label for="depass">Pass:</label>
         <input type="password" name="depass" id="depass">
-        <button type="submit">Decrypt</button>
+        <button class="btn btn-info" type="submit">Decrypt</button>
       </form>
-      <div id="decryptres"></div><button id="clipButton" disabled>Copy</button>
+      <div id="decryptres"></div><button class="btn btn-secondary" id="clipButton" disabled>Copy</button>
     </div>
   </div>
   <script src="js/main.js"></script>
