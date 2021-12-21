@@ -106,7 +106,7 @@
     const el_down = document.getElementById("geeks");
     const outputColors = {i: 'green', w: 'orange', a: 'red', t: '#333'}
 
-    clipButton.addEventListener('click', () => putClipboard())
+    clipButton.addEventListener('click', () => putClipboard(decryptres))
 
     encform.addEventListener('submit', (e)=> {
       e.preventDefault()
@@ -136,8 +136,8 @@
       decryptres.style.color = outputColors[type] || 'black'
     }
 
-    function putClipboard() {
-      navigator.clipboard.writeText(decryptres.innerHTML)
+    function putClipboard(node) {
+      navigator.clipboard.writeText(node.innerHTML)
     }
 
     function generateP() {
