@@ -114,7 +114,8 @@
 
     clipButton.addEventListener('click', () => putClipboard(decryptres))
 
-    copypassbutton.addEventListener('click', () => {
+    copypassbutton.addEventListener('click', (event) => {
+      event.preventDefault()
       decform.depass.value = encform.enpass.value
     })
 
