@@ -78,6 +78,7 @@
         <textarea class="materialize-textarea" name="entext" id="entext" cols="30" rows="10"></textarea><br>
         <label for="enpass">Pass:</label>
         <input type="password" name="enpass" id="enpass">
+        <button class="btn btn-success" id="copypassbutton">Send pass to dec</button>
         <button class="btn light-blue lighten-1" type="submit">Encrypt</button>
       </form>
     </div>
@@ -107,10 +108,15 @@
     const decform = document.forms.medecrypter
     const decryptres = document.getElementById('decryptres')
     const clipButton = document.getElementById('clipButton')
+    const copypassbutton = document.getElementById('copypassbutton')
     const el_down = document.getElementById("geeks");
     const outputColors = {i: 'green', w: 'orange', a: 'red', t: '#333'}
 
     clipButton.addEventListener('click', () => putClipboard(decryptres))
+
+    copypassbutton.addEventListener('click', () => {
+      decform.depass.value = encform.enpass.value
+    })
 
     encform.addEventListener('submit', (e)=> {
       e.preventDefault()
