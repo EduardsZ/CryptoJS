@@ -71,33 +71,34 @@
 </head>
 <body>
   <div class="container">
+    <div id="languageButtons"></div>
     <div class="encripter">
-      <h4>Encrypt...</h4>
+      <h4><span class="langsa">Encrypt...</span></h4>
       <form name="meencrypter">
-        <label for="entext">Text</label><br>
+        <label for="entext"><span class="langsa">Text</span></label><br>
         <textarea class="materialize-textarea" name="entext" id="entext" cols="30" rows="10"></textarea><br>
-        <label for="enpass">Pass:</label>
+        <label for="enpass"><span class="langsa">Pass:</span></label>
         <input type="password" name="enpass" id="enpass">
-        <button class="btn btn-success" id="copypassbutton">Send pass to dec</button>
-        <button class="btn light-blue lighten-1" type="submit">Encrypt</button>
+        <button class="btn btn-success" id="copypassbutton"><span class="langsa">Send pass to dec</span></button>
+        <button class="btn light-blue lighten-1" type="submit"><span class="langsa">Encrypt</span></button>
       </form>
     </div>
     <div class="decripter">
-      <h4>Decrypt...</h4>
+      <h4><span class="langsa">Decrypt...</span></h4>
       <form name="medecrypter">
         <div class="input-field col l8">
-          <label for="detext">Text</label><br>
+          <label for="detext"><span class="langsa">Text</span></label><br>
           <textarea class="materialize-textarea" name="detext" id="detext" cols="30" rows="10"></textarea><br>
         </div>
-        <label for="depass">Pass:</label>
+        <label for="depass"><span class="langsa">Pass:</span></label>
         <input type="password" name="depass" id="depass">
-        <button class="btn brown accent-2" type="submit">Decrypt</button>
+        <button class="btn brown accent-2" type="submit"><span class="langsa">Decrypt</span></button>
       </form>
-      <div id="decryptres"></div><button class="btn purple lighten-2" id="clipButton" disabled>Copy</button>
+      <div id="decryptres"></div><button class="btn purple lighten-2" id="clipButton" disabled><span class="langsa">Copy</span></button>
     </div>
     <div class="pasgen">
       <button class="waves-effect waves-light btn card-panel teal lighten-2" onclick="gfg_Run()">
-        Click Here
+        <span class="langsa">Click Here</span>
       </button>
       <span id="geeks"></span>
     </div>
@@ -111,6 +112,27 @@
     const copypassbutton = document.getElementById('copypassbutton')
     const el_down = document.getElementById("geeks");
     const outputColors = {i: 'green', w: 'orange', a: 'red', t: '#333'}
+    const langSpans = document.getElementsByClassName('langsa')
+    const langButtonBox = document.getElementById('languageButtons')
+
+    const langsa = {
+      en: {
+        name: 'English',
+        values: ['Encrypt...','Text','Pass','Send pass to dec','Encrypt','Decrypt...','Text','Pass:','Decrypt','Copy','Click Here']
+      },
+      ru: {
+        name: 'Русский',
+        values: ['Зашифровать','Текст','Пароль','Переслать пароль','Зашифровать','Расшифровать...','Текст','Пароль','Расшифровать','В буфер','Просто кликнуть']
+      }
+    }
+
+    const languages = Object.getOwnPropertyNames(langsa)
+
+    languages.forEach(langage => {
+      langButtonBox.innerHTML += `<button class="btn btn-info" onclick="setLanguage('${langage}')">${langsa[langage].name}</button>`
+    })
+
+    setLanguage(localStorage.getItem('language') || 'en')
 
     clipButton.addEventListener('click', () => putClipboard(decryptres))
 
@@ -141,6 +163,16 @@
       }
     })
 
+    function setLanguage(language = 'en') {
+      if (langSpans.length == langsa[language].values.length) {
+        const lsLength = langSpans.length
+        for(let i = 0; i < lsLength; i++) {
+          langSpans[i].innerHTML = langsa[language].values[i]
+        }
+        localStorage.setItem('Language', language)
+      }
+    }
+
     function fillOutput(text, type = 't') {
       decryptres.innerHTML = `${text}`
       type == 'i' ? clipButton.disabled = false : clipButton.disabled = true
@@ -158,7 +190,6 @@
         var char = Math.floor(Math.random() * str.length + 1);
         pass += str.charAt(char)
       }
-
       return pass;
     }
 
