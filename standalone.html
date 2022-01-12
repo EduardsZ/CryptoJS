@@ -132,7 +132,7 @@
       langButtonBox.innerHTML += `<button class="btn btn-info" onclick="setLanguage('${langage}')">${langsa[langage].name}</button>`
     })
 
-    setLanguage(localStorage.getItem('language') || 'en')
+    setLanguage(localStorage.getItem('Language') || 'en')
 
     clipButton.addEventListener('click', () => putClipboard(decryptres))
 
