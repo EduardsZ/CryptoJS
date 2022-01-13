@@ -126,6 +126,8 @@
 
     const languages = Object.getOwnPropertyNames(langsa)
 
+    if (DetectDevice()) clipButton.style.display = "none"
+
     languages.forEach(langage => {
       langButtonBox.innerHTML += `<button class="btn btn-info" onclick="setLanguage('${langage}')">${langsa[langage].name}</button>`
     })
@@ -193,6 +195,15 @@
 
     function gfg_Run() {
       el_down.innerHTML = generateP();
+    }
+
+    function DetectDevice() {
+      let isMobile = window.matchMedia || window.msMatchMedia
+      if(isMobile) {
+          let match_mobile = isMobile("(pointer:coarse)")
+          return match_mobile.matches
+      }
+      return false
     }
   </script>
 </body>
