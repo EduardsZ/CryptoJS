@@ -109,19 +109,19 @@
     const clipButton = document.getElementById('clipButton')
     const copypassbutton = document.getElementById('copypassbutton')
     const el_down = document.getElementById("geeks");
-    const outputColors = {i: 'green', w: 'orange', a: 'red', t: '#333'}
+    const outputColors = {i: 'green', w: 'orange', a: 'red', t: '#333', j: '#99c'}
     const langSpans = document.getElementsByClassName('langsa')
     const langButtonBox = document.getElementById('languageButtons')
 
     const langsa = {
       en: {
         name: 'English',
-        values: ['Encrypt...','Text','Pass','Send pass to dec','Encrypt','Decrypt...','Text','Pass:','Decrypt','Copy','Click Here'],
+        values: ['Encrypt...','Text','Pass','Send pass to dec','Encrypt','Decrypt...','Text','Pass:','Decrypt','Copy result to clipboard','Click Here'],
         messages: ['just write something...', 'Something went wrong.', 'Result will appear here.']
       },
       ru: {
         name: 'Русский',
-        values: ['Зашифровать','Текст','Пароль','Переслать пароль','Зашифровать','Расшифровать...','Текст','Пароль','Расшифровать','В буфер','Просто кликнуть'],
+        values: ['Зашифровать','Текст','Пароль','Переслать пароль','Зашифровать','Расшифровать...','Текст','Пароль','Расшифровать','Скопировать в буфер','Просто кликнуть'],
         messages: ['Надо что-то написать...', 'Что-то пошло не так.', 'Тут будет выводиться результат.']
       }
     }
@@ -135,6 +135,7 @@
     })
 
     setLanguage(localStorage.getItem('Language') || 'en')
+    fillOutput(localizeMessages(2), 'j')
 
     clipButton.addEventListener('click', () => putClipboard(decryptres))
 
@@ -173,6 +174,7 @@
         }
         localStorage.setItem('Language', language)
       }
+      fillOutput(localizeMessages(2), 'j')
     }
 
     function localizeMessages(msgId) {
